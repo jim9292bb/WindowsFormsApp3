@@ -46,6 +46,8 @@
             this.btnZero = new System.Windows.Forms.Button();
             this.btnDot = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnBackspace = new System.Windows.Forms.Button();
+            this.btnPercent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSeven
@@ -243,11 +245,35 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnBackspace
+            // 
+            this.btnBackspace.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackspace.Location = new System.Drawing.Point(66, 206);
+            this.btnBackspace.Name = "btnBackspace";
+            this.btnBackspace.Size = new System.Drawing.Size(81, 44);
+            this.btnBackspace.TabIndex = 18;
+            this.btnBackspace.Text = "<<";
+            this.btnBackspace.UseVisualStyleBackColor = true;
+            this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
+            // 
+            // btnPercent
+            // 
+            this.btnPercent.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPercent.Location = new System.Drawing.Point(66, 343);
+            this.btnPercent.Name = "btnPercent";
+            this.btnPercent.Size = new System.Drawing.Size(81, 44);
+            this.btnPercent.TabIndex = 19;
+            this.btnPercent.Text = "%";
+            this.btnPercent.UseVisualStyleBackColor = true;
+            this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 408);
+            this.Controls.Add(this.btnPercent);
+            this.Controls.Add(this.btnBackspace);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnEqual);
@@ -293,6 +319,8 @@
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.Button btnDot;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnBackspace;
+        private System.Windows.Forms.Button btnPercent;
     }
 }
 

@@ -47,7 +47,7 @@ namespace WindowsFormsApp3
     {
         public double eval(double first_number, double second_number)
         {
-            return 0.0f;
+            return 0.0d;
         }
     }
 

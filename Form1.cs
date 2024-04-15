@@ -50,6 +50,11 @@ namespace WindowsFormsApp3
 
         private void select_operator(OPERATOR _operator)
         {
+            if (txtNumber.Text.IndexOf('%') != -1)
+            {
+                txtNumber.Text = txtNumber.Text.Substring(0, txtNumber.Text.Length - 1);
+                txtNumber.Text = (Convert.ToDouble(txtNumber.Text) / 100.0d).ToString();
+            }
             firstNumber = Convert.ToDouble(txtNumber.Text);
             txtNumber.Text = "0";
             operator_kind = _operator;
@@ -133,8 +138,8 @@ namespace WindowsFormsApp3
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtNumber.Text = "0";
-            firstNumber = 0f;
-            secondNumber = 0f;
+            firstNumber = 0d;
+            secondNumber = 0d;
             operator_kind = OPERATOR.NULL;
         }
 
@@ -142,18 +147,37 @@ namespace WindowsFormsApp3
         {
             if (txtNumber.Text.IndexOf(".") == -1)
             {
-                txtNumber.Text = txtNumber.Text + ".";
+                txtNumber.Text += ".";
+            }
+        }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            if (txtNumber.Text.IndexOf(".") == -1)
+            {
+                txtNumber.Text = txtNumber.Text + "%";
+            }
+        }
+
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            if (txtNumber.Text.Length > 1)
+            {
+                txtNumber.Text = txtNumber.Text.Substring(0, txtNumber.Text.Length - 1);
+            }
+            else
+            {
+                txtNumber.Text = "0";
             }
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            double results = 0f;
             secondNumber = Convert.ToDouble(txtNumber.Text);
             Operator oper = operator_factor(operator_kind);
             txtNumber.Text = string.Format("{0:0.##########}", oper.eval(this.firstNumber, this.secondNumber));
-            this.firstNumber = 0.0f;
-            this.secondNumber = 0.0f;
+            this.firstNumber = 0.0d;
+            this.secondNumber = 0.0d;
             this.operator_kind = OPERATOR.NULL;
         }
     }
